@@ -1,7 +1,7 @@
-const sum = require("./sum");
+const { sumFunction, validImportFunction } = require("./sum");
 
 test("adds 1 + 2 equaling 3", () => {
-  expect(sum(1, 2)).toBe(3);
+  expect(sumFunction(1, 2)).toBe(3);
 });
 
 test("adds 2 + 2 equaling 4", () => {
@@ -22,4 +22,15 @@ test("null is falsy", () => {
 test("0 is falsy", () => {
   const n = null;
   expect(n).toBeFalsy();
+});
+
+test("one is truthy", () => {
+  const n = 1;
+  expect(n).toBeTruthy();
+});
+
+test("throws on invalid input", () => {
+  expect(() => {
+    validImportFunction("1");
+  }).toThrow();
 });

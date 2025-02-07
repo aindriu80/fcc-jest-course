@@ -1,5 +1,11 @@
-function sum(a, b) {
+function sumFunction(a, b) {
   return a + b;
 }
 
-module.exports = sum;
+function validImportFunction(input) {
+  if (typeof input !== "number") {
+    throw new Error("Invalid Input");
+  }
+}
+
+module.exports = { sumFunction, validImportFunction };
