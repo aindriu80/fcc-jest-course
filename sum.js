@@ -8,4 +8,10 @@ function validImportFunction(input) {
   }
 }
 
-module.exports = { sumFunction, validImportFunction };
+function fetchDataFunction(callback) {
+  setTimeout(() => {
+    callback("peanut butter");
+  }, 2000);
+}
+
+module.exports = { sumFunction, validImportFunction, fetchDataFunction };

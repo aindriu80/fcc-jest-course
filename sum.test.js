@@ -1,4 +1,8 @@
-const { sumFunction, validImportFunction } = require("./sum");
+const {
+  sumFunction,
+  validImportFunction,
+  fetchDataFunction,
+} = require("./sum");
 
 test("adds 1 + 2 equaling 3", () => {
   expect(sumFunction(1, 2)).toBe(3);
@@ -33,4 +37,16 @@ test("throws on invalid input", () => {
   expect(() => {
     validImportFunction("1");
   }).toThrow();
+});
+
+test("The data matches 'peanut butter'", (done) => {
+  function callback(data) {
+    try {
+      expect(data).toBe("peanut butter");
+      done();
+    } catch (error) {
+      done(error);
+    }
+  }
+  fetchDataFunction(callback);
 });
