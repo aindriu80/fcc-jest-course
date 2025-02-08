@@ -2,6 +2,7 @@ const {
   sumFunction,
   validImportFunction,
   fetchDataFunction,
+  fetchPromiseFunction,
 } = require("./sum");
 
 test("adds 1 + 2 equaling 3", () => {
@@ -50,3 +51,12 @@ test("The data matches 'peanut butter'", (done) => {
   }
   fetchDataFunction(callback);
 });
+
+test("The data matches 'jam bread'", () => {
+  return expect(fetchPromiseFunction()).resolves.toBe("jam bread");
+});
+
+// Following test is designed to fail
+// test("the fetch promise returns with an error", () => {
+//   return expect(fetchPromiseFunction()).rejects.toThrow("error");
+// });

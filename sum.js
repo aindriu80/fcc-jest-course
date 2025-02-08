@@ -14,4 +14,15 @@ function fetchDataFunction(callback) {
   }, 2000);
 }
 
-module.exports = { sumFunction, validImportFunction, fetchDataFunction };
+function fetchPromiseFunction() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve("jam bread"), 1000);
+  });
+}
+
+module.exports = {
+  sumFunction,
+  validImportFunction,
+  fetchDataFunction,
+  fetchPromiseFunction,
+};
