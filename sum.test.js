@@ -60,3 +60,27 @@ test("The data matches 'jam bread'", () => {
 // test("the fetch promise returns with an error", () => {
 //   return expect(fetchPromiseFunction()).rejects.toThrow("error");
 // });
+
+test("Async/Await - the data says 'jam bread'", async () => {
+  const data = await fetchPromiseFunction();
+  expect(data).toBe("jam bread");
+});
+
+test("Mock implemenation of a basic function", () => {
+  const mock = jest.fn((x) => 42 + x);
+  expect(mock(1)).toBe(43);
+  expect(mock).toHaveBeenCalledWith(1);
+});
+
+test("Spying on a method of an object", () => {
+  const video = {
+    play() {
+      return true;
+    },
+  };
+  const spy = jest.spyOn(video, "play");
+  video.play();
+
+  expect(spy).toHaveBeenCalled();
+  spy.mockRestore();
+});

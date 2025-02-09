@@ -19,7 +19,6 @@ function fetchPromiseFunction() {
     setTimeout(() => resolve("jam bread"), 1000);
   });
 }
-
 module.exports = {
   sumFunction,
   validImportFunction,
